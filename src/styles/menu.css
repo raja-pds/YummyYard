@@ -1,0 +1,53 @@
+.menubg {
+  background-image: url('../assets/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+.menucenter {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.section-title {
+  color: rgb(255, 255, 255);
+  margin-left: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.section-title:hover{
+  background-color: rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+button {
+  margin-bottom: 10px;
+}
