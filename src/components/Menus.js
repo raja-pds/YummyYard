@@ -23,25 +23,25 @@ const Menus = () => {
   const [displayMenu, setDisplayMenu] = useState('mainMenu');
 
   const mainMenuItems = [
-    { name: 'Pizza', image: pizza },
-    { name: 'Fish Fry', image: fishfry },
-    { name: 'Burger', image: burger },
-    { name: 'Chicken', image: chicken },
-    { name: 'Seafood', image: seafood },
-    { name: 'Iral', image: iral },
-    { name: 'Briyani', image: briyani },
-    { name: 'Leg Piece', image: legpiece }
+    { name: 'Pizza', image: pizza,price : '$7.50' },
+    { name: 'Fish Fry', image: fishfry ,price :'$8.00'   },
+    { name: 'Burger', image: burger,price:'$10.00' },
+    { name: 'Chicken', image: chicken,price:'$12.50' },
+    { name: 'Seafood', image: seafood,price:'$15.25' },
+    { name: 'Iral', image: iral ,price:'$17.25'},
+    { name: 'Briyani', image: briyani ,price:'$20.00'},
+    { name: 'Leg Piece', image: legpiece,price:'$15.00' }
   ];
 
   const juiceItems = [
-    { name: 'Juice', image: juice },
-    { name: 'Kiwi', image: kiwi },
-    { name: 'Lemon', image: lemon },
-    { name: 'Papaya', image: papaya },
-    { name: 'pomegrante', image: pomegrante },
-    { name: 'Orieo', image: orieo },
-    { name: 'Strawberry', image: strabeery },
-    { name: 'Pineapple', image: pineapple }
+    { name: 'Juice', image: juice,price:'$5.00' },
+    { name: 'Kiwi', image: kiwi,price:'$10.00' },
+    { name: 'Lemon', image: lemon,price:'$7.50' },
+    { name: 'Papaya', image: papaya ,price:'$12.50'},
+    { name: 'pomegrante', image: pomegrante,price:'$18.00' },
+    { name: 'Orieo', image: orieo ,price:'$20.00'},
+    { name: 'Strawberry', image: strabeery,price:'$17.50' },
+    { name: 'Pineapple', image: pineapple,price:'$22.00' }
   ];
 
   const toggleDisplayMenu = (menuType) => {
@@ -65,16 +65,14 @@ const Menus = () => {
                       <Card.Img variant="top" src={item.image} alt={item.name} />
                       <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
-                        <Button variant="primary" className='me-2'>+1</Button>
+                        <Button variant="primary" className='me-2'>{item.price}</Button>
                         <Button variant="success">Add to Cart</Button>
                       </Card.Body>
                     </Card>
                   </Col>
                 ))}
               </Row>
-            )}
-
-           
+            )}  
             {displayMenu === 'juiceItems' && (
               <Row>
                 {juiceItems.map((item, index) => (
@@ -83,7 +81,7 @@ const Menus = () => {
                       <Card.Img variant="top" src={item.image} alt={item.name} />
                       <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
-                        <Button variant="primary" className='me-2'>+1</Button>
+                        <Button variant="primary" className='me-2'>{item.price}</Button>
                         <Button variant="success">Add to Cart</Button>
                       </Card.Body>
                     </Card>

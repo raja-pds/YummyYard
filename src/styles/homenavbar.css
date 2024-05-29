@@ -1,6 +1,6 @@
 /*Top header */
 
-.buy{
+/* .buy{
   background-color: rgb(21, 143, 21);
   width: 130px;
   height: 50px;
@@ -13,7 +13,7 @@
 .stcimg{
   padding: 20px;
   cursor: pointer;
-}
+} */
 
 /* Header */
 .home-header {
@@ -51,6 +51,8 @@
   margin: 0 15px;
 }
 
+
+/*Hero page */
 .img-content {
   margin-bottom: 250px;
   padding: 0 300px 0 0;
@@ -93,7 +95,7 @@
   border-radius: 10px;
 }
 
-
+/* small screen sizes */
 @media (min-width:1px) and (max-width:767.98px){
   .hero-image{
     height: 400px; 
@@ -103,8 +105,8 @@
   margin-bottom: 1px;
   padding: 0 100px 0 0;
 }
-.img-content h1,h3,p{
-  font-size: 12px;
+.img-content h1,h4,p{
+  font-size: 18px;
 }
 
 }

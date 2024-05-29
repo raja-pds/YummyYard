@@ -13,7 +13,7 @@ function Heropage() {
           <img src={bg1} className='w-100 hero-image' alt="Background 1" />
           <Carousel.Caption>
             <div className='img-content'>
-              <h3>Hello, New friend</h3>
+              <h4>Hello, New friend</h4>
               <h1>Visit to our Online shop</h1>
               <p>Explore our extensive selection online and visit our shop today!</p>
               <button className='find-us'>Find Us</button>
@@ -24,7 +24,7 @@ function Heropage() {
           <img src={bg2} className='w-100 hero-image' alt="Background 2" />
           <Carousel.Caption>
             <div className='img-content'>
-              <h3>Hello, New friend</h3>
+              <h4>Hello, New friend</h4>
               <h1>Visit to our Online shop</h1>
               <p>Explore our extensive selection online and visit our shop today!</p>
               <button className='find-us'>Find Us</button>
@@ -35,7 +35,7 @@ function Heropage() {
           <img src={bg3} className='w-100 hero-image' alt="Background 3" />
           <Carousel.Caption>
             <div className='img-content'>
-              <h3>Hello, New friend</h3>
+              <h4>Hello, New friend</h4>
               <h1>Visit to our Online shop</h1>
               <p>Explore our extensive selection online and visit our shop today!</p>
               <button className='find-us'>Find Us</button>

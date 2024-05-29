@@ -38,12 +38,6 @@
   margin-top: 20px;
 }
 
-/* Social media icons styling */
-.icons {
-  font-size: 30px;
-  margin: 0px 10px;
-}
-
 
 /* Dotted underline styling */
 .underline {
@@ -85,6 +79,12 @@
   color: white;
 }
 
+.contact-us{
+  font-size: 20px;
+  color:black;
+  cursor: pointer;
+}
+
 /* Reservation button styling */
 .reserve-btn {
   background-color: yellow;
@@ -95,9 +95,40 @@
 }
 
 /* Teams card container styling */
-.teams-card {
-  margin-bottom: 40px;
+/* Social media icons styling */
+.icons {
+  font-size: 30px;
+  margin-left: 10px;
 }
+
+.team-img {
+  height: 600px;
+  border-radius: 5px;
+
+}
+
+.social-icons{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.team-card{
+ border: 1px solid rgb(128, 128, 128);
+ border-radius: 5px;
+ height: 800px;
+}
+
+
+/* Card underline styling */
+.card-underline {
+  border: none;
+  border-top: 5px dotted #383838;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
 
 /* Separator line styling */
 .separateline {
@@ -107,13 +138,7 @@
   margin-bottom: 30px;
 }
 
-/* Card underline styling */
-.card-underline {
-  border: none;
-  border-top: 5px dotted #383838;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
+
 
 /* Card header styling */
 .card h1 {
@@ -133,4 +158,15 @@
   .icons {
     margin: 5px;
   }
+  .team-img {
+    height: 500px;
+    border-radius: 5px;
+
+  }
+  .team-card{
+    height: 650px;
+    margin-bottom: 30px;
+  }
+  
+
 }

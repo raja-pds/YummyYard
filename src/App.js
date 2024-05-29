@@ -22,6 +22,7 @@ function App() {
             <HomeNavbar />
             <Heropage />
             <Example />
+            <Footer />
           </>
         } />
          <Route path="/about" element={

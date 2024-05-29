@@ -8,9 +8,8 @@ import Footer from '../components/Footer';
 function Home  ()  {
   return (
    <>
-    <HomeNavbar />
-     <Heropage /> 
-       
+       <HomeNavbar />
+        <Heropage />  
         <Example />
         <Footer />
    </>
