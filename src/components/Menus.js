@@ -1,6 +1,6 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/menu.css';
 import pizza from '../assets/pizza.jpg';
 import juice from '../assets/juice.jpg';
@@ -19,89 +19,99 @@ import papaya from '../assets/papaya.jpg';
 import pineapple from '../assets/pineapple.jpg';
 import strabeery from '../assets/strabeery.jpg';
 
-const Menus = () => {
+const Menus = ({ handleAddToCart }) => {
   const [displayMenu, setDisplayMenu] = useState('mainMenuItems');
-  const [count,setCount] = useState(0);
+  const [mainMenuItems, setMainMenuItems] = useState([
+    { name: 'Pizza', image: pizza, price: '$7.50', count: 0 },
+    { name: 'Fish Fry', image: fishfry, price: '$8.00', count: 0 },
+    { name: 'Burger', image: burger, price: '$10.00', count: 0 },
+    { name: 'Chicken', image: chicken, price: '$12.50', count: 0 },
+    { name: 'Seafood', image: seafood, price: '$15.25', count: 0 },
+    { name: 'Iral', image: iral, price: '$17.25', count: 0 },
+    { name: 'Briyani', image: briyani, price: '$20.00', count: 0 },
+    { name: 'Leg Piece', image: legpiece, price: '$15.00', count: 0 }
+  ]);
 
-  const mainMenuItems = [
-    { name: 'Pizza', image: pizza,price : '$7.50' },
-    { name: 'Fish Fry', image: fishfry ,price :'$8.00'   },
-    { name: 'Burger', image: burger,price:'$10.00' },
-    { name: 'Chicken', image: chicken,price:'$12.50' },
-    { name: 'Seafood', image: seafood,price:'$15.25' },
-    { name: 'Iral', image: iral ,price:'$17.25'},
-    { name: 'Briyani', image: briyani ,price:'$20.00'},
-    { name: 'Leg Piece', image: legpiece,price:'$15.00' }
-  ];
-
-  const juiceItems = [
-    { name: 'Juice', image: juice,price:'$5.00' },
-    { name: 'Kiwi', image: kiwi,price:'$10.00' },
-    { name: 'Lemon', image: lemon,price:'$7.50' },
-    { name: 'Papaya', image: papaya ,price:'$12.50'},
-    { name: 'pomegrante', image: pomegrante,price:'$18.00' },
-    { name: 'Orieo', image: orieo ,price:'$20.00'},
-    { name: 'Strawberry', image: strabeery,price:'$17.50' },
-    { name: 'Pineapple', image: pineapple,price:'$22.00' }
-  ];
+  const [juiceItems, setJuiceItems] = useState([
+    { name: 'Juice', image: juice, price: '$5.00', count: 0 },
+    { name: 'Kiwi', image: kiwi, price: '$10.00', count: 0 },
+    { name: 'Lemon', image: lemon, price: '$7.50', count: 0 },
+    { name: 'Papaya', image: papaya, price: '$12.50', count: 0 },
+    { name: 'Pomegranate', image: pomegrante, price: '$18.00', count: 0 },
+    { name: 'Oreo', image: orieo, price: '$20.00', count: 0 },
+    { name: 'Strawberry', image: strabeery, price: '$17.50', count: 0 },
+    { name: 'Pineapple', image: pineapple, price: '$22.00', count: 0 }
+  ]);
 
   const toggleDisplayMenu = (menuType) => {
     setDisplayMenu(menuType);
   };
 
-  const totalitem =(count) => {
-    setCount(count);
-  }
-
+  const handleAddToCartAndNotify = (menuType, index) => {
+    handleAddToCart();
+    if (menuType === 'mainMenuItems') {
+      const newMainMenuItems = [...mainMenuItems];
+      newMainMenuItems[index].count += 1;
+      setMainMenuItems(newMainMenuItems);
+    } else {
+      const newJuiceItems = [...juiceItems];
+      newJuiceItems[index].count += 1;
+      setJuiceItems(newJuiceItems);
+    }
+  };
 
   return (
-    <>
-      <div className='menubg w-100'>
-        <Container fluid>
-          <div className='menucenter'>
-            <div className="d-flex justify-content-between align-items-start">
-              <h2 className='section-title' onClick={() => toggleDisplayMenu('mainMenuItems')}>Main Menu Items</h2>
-              <h2 className='section-title' onClick={() => toggleDisplayMenu('juiceItems')}>Juice Items</h2>
-            </div>
-            {displayMenu === 'mainMenuItems' && (
-              <Row>
-                {mainMenuItems.map((item, index) => (
-                  <Col lg={3} md={6} sm={12} key={index} className='mb-4'>
-                    <Card className='h-100'>
-                      <Card.Img variant="top" src={item.image} alt={item.name} />
-                      <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Button variant="primary" className='me-2'>{item.price}</Button>
-                        <Button variant="primary" className='me-2'>+0</Button>
-                        <Button variant="success" onClick={() => totalitems('count')}>Add to Cart</Button>
-                        <button>Buy Now</button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            )}  
-            {displayMenu === 'juiceItems' && (
-              <Row>
-                {juiceItems.map((item, index) => (
-                  <Col lg={3} md={6} sm={12} key={index} className='mb-4'>
-                    <Card className='h-100'>
-                      <Card.Img variant="top" src={item.image} alt={item.name} />
-                      <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Button variant="primary" className='me-2'>{item.price}</Button>
-                        <Button variant="success">Add to Cart</Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            )}
+    <div className='menubg w-100'>
+      <Container fluid>
+        <div className='menucenter'>
+          <div className="d-flex justify-content-between align-items-start">
+            <h2 className='section-title' onClick={() => toggleDisplayMenu('mainMenuItems')}>Main Menu Items</h2>
+            <h2 className='section-title' onClick={() => toggleDisplayMenu('juiceItems')}>Juice Items</h2>
           </div>
-        </Container>
-      </div>
-    </>
+          {displayMenu === 'mainMenuItems' && (
+            <Row>
+              {mainMenuItems.map((item, index) => (
+                <Col lg={3} md={6} sm={12} key={index} className='mb-4'>
+                  <Card className='h-100'>
+                    <Card.Img variant="top" src={item.image} alt={item.name} />
+                    <Card.Body>
+                      <Card.Title>{item.name}</Card.Title>
+                      <div className='d-flex justify-content-between'>
+                        <Button variant="primary" className='me-2'>{item.count}</Button>
+                        <button style={{ backgroundColor: 'red', borderRadius: '5px', border: 'none' }} className='me-2'>{item.price}</button>
+                        <Button variant='success' className='me-2' onClick={() => handleAddToCartAndNotify('mainMenuItems', index)}>Add to cart</Button>
+                        <button type='button' style={{ backgroundColor: 'orange', borderRadius: '5px', border: 'none' }}>Buy Now</button>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          )}
+          {displayMenu === 'juiceItems' && (
+            <Row>
+              {juiceItems.map((item, index) => (
+                <Col lg={3} md={6} sm={12} key={index} className='mb-4'>
+                  <Card className='h-100'>
+                    <Card.Img variant="top" src={item.image} alt={item.name} />
+                    <Card.Body>
+                      <Card.Title>{item.name}</Card.Title>
+                      <div className='d-flex justify-content-between'>
+                        <Button variant="primary" className='me-2'>{item.count}</Button>
+                        <button style={{ backgroundColor: 'red', borderRadius: '5px', border: 'none' }} className='me-2'>{item.price}</button>
+                        <Button variant='success' className='me-2' onClick={() => handleAddToCartAndNotify('juiceItems', index)}>Add to cart</Button>
+                        <button type='button' style={{ backgroundColor: 'orange', borderRadius: '5px', border: 'none' }}>Buy Now</button>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          )}
+        </div>
+      </Container>
+    </div>
   );
-}
+};
 
 export default Menus;
