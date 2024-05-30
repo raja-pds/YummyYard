@@ -20,7 +20,8 @@ import pineapple from '../assets/pineapple.jpg';
 import strabeery from '../assets/strabeery.jpg';
 
 const Menus = () => {
-  const [displayMenu, setDisplayMenu] = useState('mainMenu');
+  const [displayMenu, setDisplayMenu] = useState('mainMenuItems');
+  const [count,setCount] = useState(0);
 
   const mainMenuItems = [
     { name: 'Pizza', image: pizza,price : '$7.50' },
@@ -48,16 +49,21 @@ const Menus = () => {
     setDisplayMenu(menuType);
   };
 
+  const totalitem =(count) => {
+    setCount(count);
+  }
+
+
   return (
     <>
       <div className='menubg w-100'>
         <Container fluid>
           <div className='menucenter'>
             <div className="d-flex justify-content-between align-items-start">
-              <h2 className='section-title' onClick={() => toggleDisplayMenu('mainMenu')}>Main Menu Items</h2>
+              <h2 className='section-title' onClick={() => toggleDisplayMenu('mainMenuItems')}>Main Menu Items</h2>
               <h2 className='section-title' onClick={() => toggleDisplayMenu('juiceItems')}>Juice Items</h2>
             </div>
-            {displayMenu === 'mainMenu' && (
+            {displayMenu === 'mainMenuItems' && (
               <Row>
                 {mainMenuItems.map((item, index) => (
                   <Col lg={3} md={6} sm={12} key={index} className='mb-4'>
@@ -66,7 +72,9 @@ const Menus = () => {
                       <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
                         <Button variant="primary" className='me-2'>{item.price}</Button>
-                        <Button variant="success">Add to Cart</Button>
+                        <Button variant="primary" className='me-2'>+0</Button>
+                        <Button variant="success" onClick={() => totalitems('count')}>Add to Cart</Button>
+                        <button>Buy Now</button>
                       </Card.Body>
                     </Card>
                   </Col>

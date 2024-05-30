@@ -50,4 +50,10 @@
 
 button {
   margin-bottom: 10px;
+
+}
+
+.btnsec{
+  display: flex;
+  flex-direction: column;
 }
