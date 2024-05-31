@@ -1,0 +1,32 @@
+.contact-header {
+ 
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  /* Feature icon image styling */
+  .feature-icon {
+    height: 80px;
+  }
+  
+  .contactback{
+    background-image: url(../assets/bg.jpg);
+    background-size: cover;
+    height: 100%;
+  }
+
+  .call-card{
+ 
+  }
+.contactcontent{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+  .center {
+    margin: 0px 20px 0px 20px;
+  }
+  
+  .contactform{
+    padding: 15px;
+  }

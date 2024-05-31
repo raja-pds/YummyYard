@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/menu.css';
@@ -21,6 +22,8 @@ import strabeery from '../assets/strabeery.jpg';
 
 const Menus = ({ handleAddToCart }) => {
   const [displayMenu, setDisplayMenu] = useState('mainMenuItems');
+
+
   const [mainMenuItems, setMainMenuItems] = useState([
     { name: 'Pizza', image: pizza, price: '$7.50', count: 0 },
     { name: 'Fish Fry', image: fishfry, price: '$8.00', count: 0 },
@@ -43,6 +46,8 @@ const Menus = ({ handleAddToCart }) => {
     { name: 'Pineapple', image: pineapple, price: '$22.00', count: 0 }
   ]);
 
+  const navigate = useNavigate();
+
   const toggleDisplayMenu = (menuType) => {
     setDisplayMenu(menuType);
   };
@@ -59,6 +64,14 @@ const Menus = ({ handleAddToCart }) => {
       setJuiceItems(newJuiceItems);
     }
   };
+
+
+  const handleBuyNow = () => {
+    const selectedItems = [...mainMenuItems, ...juiceItems].filter(item => item.count > 0);
+    const totalPrice = selectedItems.reduce((total, item) => total + (parseFloat(item.price.slice(1)) * item.count), 0);
+    navigate('/checkout', { state: { items: selectedItems, totalPrice: `$${totalPrice.toFixed(2)}` } });
+  };
+
 
   return (
     <div className='menubg w-100'>
@@ -80,7 +93,7 @@ const Menus = ({ handleAddToCart }) => {
                         <Button variant="primary" className='me-2'>{item.count}</Button>
                         <button style={{ backgroundColor: 'red', borderRadius: '5px', border: 'none' }} className='me-2'>{item.price}</button>
                         <Button variant='success' className='me-2' onClick={() => handleAddToCartAndNotify('mainMenuItems', index)}>Add to cart</Button>
-                        <button type='button' style={{ backgroundColor: 'orange', borderRadius: '5px', border: 'none' }}>Buy Now</button>
+                        <button type='button' style={{ backgroundColor: 'orange', borderRadius: '5px', border: 'none' }} onClick={handleBuyNow}>Buy Now</button>
                       </div>
                     </Card.Body>
                   </Card>
@@ -100,7 +113,7 @@ const Menus = ({ handleAddToCart }) => {
                         <Button variant="primary" className='me-2'>{item.count}</Button>
                         <button style={{ backgroundColor: 'red', borderRadius: '5px', border: 'none' }} className='me-2'>{item.price}</button>
                         <Button variant='success' className='me-2' onClick={() => handleAddToCartAndNotify('juiceItems', index)}>Add to cart</Button>
-                        <button type='button' style={{ backgroundColor: 'orange', borderRadius: '5px', border: 'none' }}>Buy Now</button>
+                        <button type='button' style={{ backgroundColor: 'orange', borderRadius: '5px', border: 'none' }} onClick={handleBuyNow}>Buy Now</button>
                       </div>
                     </Card.Body>
                   </Card>

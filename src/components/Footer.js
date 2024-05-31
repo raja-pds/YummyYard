@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import footerlogo from '../assets/footerlogo.png';
 import '../styles/footer.css';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 function Footer() {
+  const navigate = useNavigate();
+
   return (
     <div className='backimg'>
       <Container fluid>
@@ -28,7 +31,7 @@ function Footer() {
               <h2>About Us</h2>
               <div className='footer-final-div'>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita repudiandae neque illum aspernatur fugiat maiores id magni, modi, quaerat vitae. Consectetur adipisicing elit.</p>
-                <h4>Our Menu</h4>
+                <h4 onClick={() => navigate('/menu')} style={{ cursor: 'pointer' }}>Our Menu</h4>
               </div>
             </Col>
             <Col lg={4} md={12} sm={12}>
@@ -45,13 +48,13 @@ function Footer() {
                   <p>Canada, Toronto, North Avenue 31B</p>
                 </Col>
               </Row>
-              <h4>Contact Us</h4>
+              <h4 onClick={() => navigate('/contact')} style={{ cursor: 'pointer' }}>Contact Us</h4>
             </Col>
             <Col lg={4} md={12} sm={12}>
               <h2>Gallery</h2>
               <div className='footer-final-div'>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita repudiandae neque illum aspernatur fugiat maiores id magni, modi, quaerat vitae. Consectetur adipisicing elit.</p>
-                <h4>See more</h4>
+                <h4 onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>See more</h4>
               </div>
             </Col>
           </Row>
@@ -62,7 +65,7 @@ function Footer() {
                 <p>© 2024 Tastycs. All rights reserved</p>
               </Col>
               <Col lg={6} md={6} sm={6} className='text-end text-sm-end d-flex justify-content-sm-end'>
-                <p>BACK TO TOP</p>
+                <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', color: 'yellow' }}>BACK TO TOP</p>
               </Col>
             </Row>
           </div>

@@ -7,6 +7,7 @@ import cook from '../assets/cook.svg';
 
 const Features = () => {
   return (
+    <>
     <div className='feature-content p-lg-3 p-5 p-md-3'>
       <h5>Features</h5>
       <h1>Why people Choose Us?</h1>
@@ -41,6 +42,7 @@ const Features = () => {
         </Col>
       </Row>
     </div>
+    </>
   );
 }
 
