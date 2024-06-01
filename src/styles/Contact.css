@@ -15,9 +15,7 @@
     height: 100%;
   }
 
-  .call-card{
- 
-  }
+
 .contactcontent{
     padding: 10px;
     border-radius: 5px;
@@ -29,4 +27,16 @@
   
   .contactform{
     padding: 15px;
+  }
+
+
+  @media (min-width:1px) and (max-width:768px){
+    .center {
+        margin: 0px 5px 0px 5px;
+      }
+      .contactcontent{
+        border-radius: 5px;
+        margin: 10px;
+    }
+     
   }
